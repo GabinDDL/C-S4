@@ -3,6 +3,7 @@
 #include <stdbool.h>
 #include <assert.h>
 
+#define N 7
 struct fraction
 {
     long int num;
@@ -29,19 +30,19 @@ long pgcd(long a, long b);
 
 int main()
 {
-    fraction ex_fraction[7] = {build(1, 1), build(1, 2), build(2, 4), build(-9, 3), build(8, -20), build(-5, -1), build(1, -3)};
+    fraction ex_fraction[N] = {build(1, 1), build(1, 2), build(2, 4), build(-9, 3), build(8, -20), build(-5, -1), build(1, -3)};
 
-    test_eq_fraction(ex_fraction, 7);
+    test_eq_fraction(ex_fraction, N);
     printf("\n");
-    test_is_int(ex_fraction, 7);
+    test_is_int(ex_fraction, N);
     printf("\n");
-    test_sum(ex_fraction, 7);
+    test_sum(ex_fraction, N);
     printf("\n");
-    test_sub(ex_fraction, 7);
+    test_sub(ex_fraction, N);
     printf("\n");
-    test_mul(ex_fraction, 7);
+    test_mul(ex_fraction, N);
     printf("\n");
-    test_reduce(ex_fraction, 7);
+    test_reduce(ex_fraction, N);
 }
 
 void test_eq_fraction(fraction T[], size_t n)
