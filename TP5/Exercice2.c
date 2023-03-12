@@ -46,24 +46,6 @@ int main()
     test_array_search();
     test_array_remove();
     test_array_insert();
-    array *a = array_init(10);
-
-    array_append(a, 1);
-    array_append(a, 2);
-    array_append(a, 3);
-    array_append(a, 4);
-
-    array_print(a);
-    array_remove(a, 2);
-    array_print(a);
-    array_insert(a, 2, 42);
-    array_print(a);
-    array_insert(a, 0, 0);
-    array_print(a);
-    array_insert(a, 5, 9);
-    array_print(a);
-
-    array_destroy(a);
 }
 
 void test_array_init()
@@ -181,7 +163,7 @@ void test_array_set()
 
     for (size_t i = 0; i < a1->size; ++i)
     {
-        printf("array_set(a1, %lu, %d) : a1 = ", i, i - 5);
+        printf("array_set(a1, %lu, %lu) : a1 = ", i, i - 5);
         array_set(a1, i, i - 5);
         array_print(a1);
     }
@@ -230,7 +212,7 @@ void test_array_append()
 
     for (size_t i = a1->size; i < a1->capacity; ++i)
     {
-        printf("array_append(a1, %d) : ", 3 * i);
+        printf("array_append(a1, %lu) : ", 3 * i);
         array_append(a1, 3 * i);
         array_print(a1);
     }
@@ -242,7 +224,7 @@ void test_array_append()
 
     for (size_t i = a2->size; i < a2->capacity; ++i)
     {
-        printf("array_append(a2, %d) : ", 2 * i);
+        printf("array_append(a2, %lu) : ", 2 * i);
         array_append(a2, 2 * i);
         array_print(a2);
     }
@@ -281,7 +263,7 @@ void test_array_search()
 
     printf("\nL'adresse n'existe pas pour 12");
     temp = array_search(a, 12);
-    printf("\narray_search(a1, %d) == NULL : ");
+    printf("\narray_search(a1, %d) == NULL : ", 12);
     printf(temp == NULL ? "true\n" : "false\n");
 
     free(t1);
